@@ -26,5 +26,18 @@ function insertDataIntoDatabaseTable($connection, $table, $data, $query){
     }
 }
 
+function fetchDataFromDatabaseTable($connection, $table){
+    try{
+        $stmt = $connection->query('SELECT * FROM `'.$table.'`');
+        $fetchedData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $Data = [];
+        foreach ($fetchedData as $row){
+            $Data = $row;
+        }
+        return $Data;
+    }catch (PDOException $e){
+        echo $e-getMessage();
+    }
+}
 
 ?>
