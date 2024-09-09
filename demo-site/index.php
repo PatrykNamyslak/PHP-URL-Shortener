@@ -10,6 +10,14 @@
 </head>
 <body>
     <h1>PHP URL Shortener</h1>
-    <form hx-post="./create-url/"></form>
+    <!-- <form hx-post="./create-url/index.php" hx-target="input.result" hx-swap="outerHTML">
+        <input type="text" name="url" required>
+        <button type="submit">Shorten URL</button>
+    </form> -->
+    <form method="post" action="./create-url/index.php">
+        <input type="text" name="url" required>
+        <button type="submit">Shorten URL</button>
+    </form>
+    <!-- <input type="text" class="result" readonly value="Your Link will appear here!"> -->
 </body>
 </html>
