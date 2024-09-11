@@ -1,0 +1,136 @@
+:root{
+    --bg:linear-gradient(160deg, #ffc354, #ff5050, #ad5cff);
+}
+
+*{
+    font-family: system-ui;
+    margin: 0;
+    padding: 0;
+    transition: 0.2s all ease;
+}
+html{
+    /* background:var(--bg); */
+    background-color: #1e222b;
+    background-repeat: no-repeat;
+}
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+@keyframes scroll {
+    0%{
+        background-position: 0% 0%;
+    }
+    50%{
+        background-position: 100% 0%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+h1{
+    display: block;
+    background-clip:text;
+    color: transparent;
+    background-color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: var(--bg);
+    background-size:400%;
+    animation: scroll 3s ease infinite;
+}
+
+input{
+    padding: 10px;
+}
+input:first-of-type{
+    margin-bottom: 10px;
+}
+
+input:nth-of-type(2){
+    flex-grow: 1;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.container *{
+    flex-grow: 1;
+}
+button {
+    background: #1e222b;
+    border: none;
+    font-weight: 700;
+    color: white;
+    padding: 10px;
+    position: relative;
+    border-radius: 5px;
+  }
+@property --angle{
+  syntax:"<angle>";
+  initial-value:0deg;
+  inherits:false;
+}
+
+@keyframes spin {
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+button::after, button::before, input.result.success::after, input.result.success::before{
+    content:"";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-image: conic-gradient(from var(--angle), transparent, white);
+    animation: 3s linear infinite spin;
+    z-index: -1;
+    padding: 2px;
+    border-radius: 5px;
+}
+button::before{
+    filter:blur(1.5rem);
+    opacity: 0.8;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
+input {
+    background: #1e222b;
+    border: 1px solid white;
+    color: #afc7ff;
+    border-radius: 5px;
+  }
+  button:focus, input:focus {
+    outline: none;
+  }
+
+  .error{
+    background-color: #432626;
+    color: #fb6565;
+    border: 1px solid #fb6565;
+  }
+  .success{
+    background-color: #17223a;
+    color: #6da0ff;;
+    border: 1px solid #6da0ff;;
+  }
+  input.result.success::after, input.result.success::before{
+    background-image: conic-gradient(from var(--angle), transparent, #6da0ff);
+  }

@@ -20,15 +20,20 @@ require_once '../assets/functions.php';
 $url = $_POST['url'];
 if(filter_var($url, FILTER_VALIDATE_URL)){
     $ShortenedHash = generateRandomString(length:6);
-    insertDataIntoDatabaseTable(connection:$database_connection, table:'links', data:[$url, $ShortenedHash], query:'INSERT INTO `links` (Url,UrlHash) VALUES (?,?)');
+    if (insertDataIntoDatabaseTable(connection:$database_connection, table:'links', data:[$url, $ShortenedHash], query:'INSERT INTO `links` (Url,UrlHash) VALUES (?,?)')){
     // return the result to the user
     ?>
-    <input type="text" class="result" readonly value="https://patl.ink/?url=<?php echo $ShortenedHash;?>" style="width:300px;">
+    <input type="text" class="result success" readonly value="https://patl.ink/?url=<?php echo $ShortenedHash;?>" style="width:300px;">
     <?php
+    }else{
+        ?>
+    <input type="text" class="result error" readonly value="Something Went wrong!">
+<?php
+    }
 }else{
     // throw an error
     ?>
-    <input type="text" class="result" readonly value="Invalid Link!">
+    <input type="text" class="result error" readonly value="Not a URL!">
     <?php
 }
 

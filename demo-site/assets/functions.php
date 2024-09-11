@@ -17,6 +17,7 @@ $host = 'localhost';
 $database = 'url_shortener';
 $username = 'itzaver';
 $password = 'Password123';
+$isMobile = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"));
 // made using XAMPP! Use your own credentials!
 
 
@@ -35,8 +36,10 @@ function insertDataIntoDatabaseTable($connection, $table, $data, $query){
     try{
         $stmt = $connection->prepare($query);
         $stmt->execute($data);
+        return TRUE;
     }catch (PDOException $e){
-        echo 'Something went wrong! ' . $e->getMessage();
+        // echo 'Something went wrong! ' . $e->getMessage();
+        return FALSE;
     }
 }
 
