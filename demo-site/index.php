@@ -1,5 +1,23 @@
+<!--
+ /$$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$  /$$     /$$ /$$   /$$        /$$   /$$  /$$$$$$  /$$      /$$ /$$     /$$ /$$$$$$  /$$        /$$$$$$  /$$   /$$
+| $$__  $$ /$$__  $$|__  $$__/| $$__  $$|  $$   /$$/| $$  /$$/       | $$$ | $$ /$$__  $$| $$$    /$$$|  $$   /$$//$$__  $$| $$       /$$__  $$| $$  /$$/
+| $$  \ $$| $$  \ $$   | $$   | $$  \ $$ \  $$ /$$/ | $$ /$$/        | $$$$| $$| $$  \ $$| $$$$  /$$$$ \  $$ /$$/| $$  \__/| $$      | $$  \ $$| $$ /$$/ 
+| $$$$$$$/| $$$$$$$$   | $$   | $$$$$$$/  \  $$$$/  | $$$$$/         | $$ $$ $$| $$$$$$$$| $$ $$/$$ $$  \  $$$$/ |  $$$$$$ | $$      | $$$$$$$$| $$$$$/  
+| $$____/ | $$__  $$   | $$   | $$__  $$   \  $$/   | $$  $$         | $$  $$$$| $$__  $$| $$  $$$| $$   \  $$/   \____  $$| $$      | $$__  $$| $$  $$  
+| $$      | $$  | $$   | $$   | $$  \ $$    | $$    | $$\  $$        | $$\  $$$| $$  | $$| $$\  $ | $$    | $$    /$$  \ $$| $$      | $$  | $$| $$\  $$ 
+| $$      | $$  | $$   | $$   | $$  | $$    | $$    | $$ \  $$       | $$ \  $$| $$  | $$| $$ \/  | $$    | $$   |  $$$$$$/| $$$$$$$$| $$  | $$| $$ \  $$
+|__/      |__/  |__/   |__/   |__/  |__/    |__/    |__/  \__/       |__/  \__/|__/  |__/|__/     |__/    |__/    \______/ |________/|__/  |__/|__/  \__/ 
+
+DO NOT REMOVE !!!
+-->
+
+
 <!DOCTYPE html>
 <?php
+ini_set('display_errors','Off');
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_DISPLAY', false);
 require_once './assets/functions.php';
 ?>
 <html lang="en">
@@ -25,8 +43,11 @@ require_once './assets/functions.php';
     }else{
         $Urls[] = fetchDataFromDatabaseTable(connection: $database_connection, table:'links');
         $HashedUrls = array_column($Urls, 'UrlHash');
+        $Urls = array_column($Urls, 'Url');
         if(in_array($_GET['url'], $HashedUrls)){
-            header('location:'.base64_decode($_GET['url']));
+            $appearanceID = array_search($_GET['url'], $HashedUrls);
+            $destination = $Urls[$appearanceID];
+            header('location:'.$destination);
             exit;
         }else{
             echo 'Invalid Link!';
