@@ -60,4 +60,4 @@ Technologies used in the project:
 
 <h2>💖Like my work?</h2>
 
-Please make sure to give this repo a star! and if you have the time please consider sending some feedback here.
+Please make sure to give this repo a star! and if you have the time please consider sending some <a href="https://patl.ink/feedback/" target="_blank">feedback</a>.
