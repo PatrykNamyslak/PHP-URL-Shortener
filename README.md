@@ -1,6 +1,4 @@
-<h1 align="center" id="title">patl.ink - PHP URL SHORTENER</h1>
-
-<p align="center"><img src="https://socialify.git.ci/PatrykNamyslak/PHP-URL-Shortener/image?description=1&descriptionEditable=&font=KoHo&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Dark" alt="project-image"></p>
+<p align="center"><img src="https://socialify.git.ci/PatrykNamyslak/PHP-URL-Shortener/image?description=1&descriptionEditable=PHP%20%2B%20MYSQL%20Based%20Application&font=Raleway&language=1&logo=https%3A%2F%2FPatrykNamyslak.pl%2Fassets%2Fimages%2Flogo_white.svg&name=1&owner=1&pattern=Circuit%20Board&theme=Dark" alt="project-image"></p>
 
 <p id="description">This is a PHP + MYSQL Based Application that requires no extra storage than what is required for the script to run as everything is stored in the database and it is queried anytime a user wants to go view a url</p>
 
