@@ -39,8 +39,9 @@ $db_connection = db_connection(host:{YOUR_DATABASE_IP} database:{YOUR_DATABASE} 
 
 <h2>🍰 Contribution Guidelines:</h2>
 
-All Contributions are welcome however the project is pretty much complete at this point but if you see any improvements that could be made to not hesitate to submit them!
-
+All Contributions are welcome,I plan on making the following changes in the near future:
+*  Adding the functionality to fetch existing links already shortened rather than throwing an error.
+*  Allowing custom links for registered users (When it releases the demo service site will most likely only allow me to do that as you know... get your own domain ;) )
   
   
 <h2>💻 Built with</h2>
